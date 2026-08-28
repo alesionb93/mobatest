@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Relatório de execução — Mobatest</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+</head>
+<body>
+  <div style="max-width: 920px; margin: 0 auto; padding: 32px 20px;">
+    <div class="flex gap-8" style="margin-bottom: 22px;">
+      <div class="mark" style="width:26px; height:26px; border-radius:7px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; color:#06110F; font-weight:800; font-size:13px;">Tt</div>
+      <span style="font-family: var(--font-display); font-weight: 800; font-size: 16px;">Mobatest</span>
+      <span class="text-muted" style="font-size:12.5px; margin-left:6px;">· relatório público (somente leitura)</span>
+    </div>
+
+    <div id="report-root">
+      <div class="flex" style="justify-content:center; padding:80px;"><span class="spinner"></span></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/report.js"></script>
+</body>
+</html>
