@@ -51,7 +51,9 @@ export function setCurrentProject(projectId) {
 
 function updateSwitcherUI() {
   const nameEl = document.getElementById('current-project-name');
+  const badgeEl = document.getElementById('project-switcher-badge');
   if (nameEl) nameEl.textContent = currentProject ? currentProject.name : 'Nenhum projeto';
+  if (badgeEl) badgeEl.textContent = currentProject ? (currentProject.code || currentProject.name).slice(0, 2).toUpperCase() : '—';
 }
 
 export async function createProject({ name, code, description }) {

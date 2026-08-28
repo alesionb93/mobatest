@@ -331,7 +331,6 @@ function drawOverviewTab(container, data) {
   const progressPct = activeRunCases.length ? Math.round((activeExecuted / activeRunCases.length) * 100) : 0;
 
   const automatedCases = cases.filter((c) => c.automation_status === 'automated').length;
-  const toAutomate = cases.filter((c) => c.automation_status === 'to_automate').length;
   const automationPct = cases.length ? Math.round((automatedCases / cases.length) * 100) : 0;
 
   const statusCounts = { passed: 0, failed: 0, blocked: 0, skipped: 0, pre_existing: 0, untested: 0 };
@@ -359,7 +358,7 @@ function drawOverviewTab(container, data) {
       })}
       ${statCard({
         label: 'Cobertura de automação', value: automationPct + '%',
-        delta: `${automatedCases} automatizado(s) · ${toAutomate} a automatizar`,
+        delta: `${automatedCases} automatizado(s) de ${cases.length} caso(s)`,
         info: infoIcon('Cobertura de automação', 'Entender quanto do repositório de testes já está automatizado, pra priorizar investimento.', '(Casos com automação "Automatizado" ÷ Total de casos do repositório) × 100. Reflete o estado atual do repositório, não é afetado pelo filtro de data.'),
       })}
     </div>
@@ -559,7 +558,7 @@ function drawDefectsTab(container, data) {
       type: 'doughnut',
       data: {
         labels,
-        datasets: [{ data: Object.values(byReason), backgroundColor: [cssVar('--st-failed'), cssVar('--st-blocked'), cssVar('--accent-2'), cssVar('--st-preexisting'), cssVar('--st-skipped'), cssVar('--st-passed')], borderWidth: 0 }],
+        datasets: [{ data: Object.values(byReason), backgroundColor: [cssVar('--chart-1'), cssVar('--chart-2'), cssVar('--chart-3'), cssVar('--chart-4'), cssVar('--chart-5'), cssVar('--text-muted')], borderWidth: 0 }],
       },
       options: {
         responsive: true,
